@@ -2,9 +2,17 @@ package com.sirisap.sburrestdemo.models;
 
 import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Coffee {
-	private final String id;
+	@Id
+	private String id;
 	private String name;
+
+	public Coffee() {
+	}
 
 	public Coffee(String id, String name) {
 		this.id = id;
@@ -13,6 +21,10 @@ public class Coffee {
 
 	public Coffee(String name) {
 		this(UUID.randomUUID().toString(), name);
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getId() {
